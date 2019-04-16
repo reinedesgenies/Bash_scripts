@@ -1,0 +1,10 @@
+. mmontcho_funcs
+if [ $# -eq 1 ]
+then
+removeSpaces "$1"
+fi
+
+if [ $# -eq 2 ]
+then
+removeSpaces "$1" "$2"
+fi

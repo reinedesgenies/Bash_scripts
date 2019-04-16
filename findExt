@@ -1,0 +1,11 @@
+. mmontcho_funcs
+EXT="$1"
+echo $VARIABLE | grep '\.' > /dev/null
+if [ $? -ne 0 ]   #if my previously command wasn't successfull
+then 
+EXT=".$EXT"
+fi
+
+find . -name "*$EXT" 2> /dev/null
+
+

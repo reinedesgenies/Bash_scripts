@@ -1,0 +1,36 @@
+echo "Setup functions by Marlise MONTCHO"
+
+print()
+{
+echo "Inside my function"
+}
+
+
+
+uncap()
+{
+FILENAME="$1"
+NEWFILENAME=`echo "$FILENAME" | tr '[:upper:]' '[:lower:]'`
+mv "$FILENAME" "$NEWFILENAME"	
+}
+
+
+
+
+
+removeSpaces()
+{
+if [ $# -eq 1 ]
+then
+FILENAME="$1"
+NEWFILENAME=`echo "$FILENAME" | tr -d '[:space:]'`
+fi
+
+if [ $# -eq 2 ]
+then
+FILENAME="$1"
+NEWFILENAME=`echo "$FILENAME" | tr ' ' "$2"`
+fi
+mv "$FILENAME" "$NEWFILENAME"
+}
+ 

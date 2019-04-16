@@ -1,0 +1,33 @@
+. mmontcho_funcs
+MYVARIABLE=$USER
+TRACKING="$HOME/tracking/"
+FILENAME="mytrack-$(date +"%Y-%m-%d").txt"
+echo hello $MYVARIABLE
+if [ ! -d "$TRACKING" ]
+then
+   mkdir -p "$TRACKING"
+fi 
+cd "$TRACKING"
+
+echo What are we doing today? 
+echo Put in order name of the course following by the number of hours
+while read line
+do 
+
+if [ -z "$line" ]; then 
+break
+fi
+   echo  "  $line" >> "$FILENAME"
+done
+
+
+#CMDDIRECTOY=$1
+#BACKUPDIRECTORY="$HOME/backup"
+#then 
+ #   mkdir -p "$BACKUPDIRECTORY"
+#fi
+#cd "$CMDDIRECTORY"
+#echo `pwd`
+#NAMEFILE="$CMDDIRECTORY-$(date +"%Y-%m-%d").zip"
+#zip -r $BACKUPDIRECTORY/$NAMEFILE $CMDDIRECTORY
+

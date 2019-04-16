@@ -1,0 +1,5 @@
+set -x # show the command before it is execute
+for i in $@
+ do
+     echo "i is " $i
+done

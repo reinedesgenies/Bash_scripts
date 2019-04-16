@@ -1,0 +1,72 @@
+awk -v SEARCH="$1" '
+BEGIN {
+print "Search for " SEARCH
+}
+function addLine(line)
+{
+ line= NR " " line
+ if (line1 == "" )
+ line1 = line
+ else if (line2 == "" )
+ line2=line
+ else if (line3 == "" )
+ line3 = line
+ else # move each line up and add this one
+ { 
+ line1 = line2
+ line2 = line3
+ line3 = line
+
+ }
+}
+
+function printWindow()
+{
+
+if (line1 != "")
+print "--- " line1
+
+if (line2 != "")
+print "-->" line2
+
+if (line3 != "")
+print "--- " line3
+print ""
+}
+
+function printMatch()
+{
+ if (line2 ~ SEARCH)
+ {
+ printWindow()
+ return 1 # 1 mean TRUE
+ }
+ if (line3 =="")
+ {
+   if (line1 != "")
+   print "--- " line1
+   if (line2 != "")
+   print "-->" line2
+ }
+}
+{
+print "search line" NR": " $0 " for " SEARCH
+addLine($0)
+printMatch()
+if ($0 ~ SEARCH)
+
+   print "Line " NR" has " SEARCH
+#   else
+ #  print "Line " NR  " does not have " SEARCH
+    
+}
+END {
+
+    print "At End"
+    if ($0 ~ SEARCH)
+    {
+
+    printWindow()
+    }
+}'
+

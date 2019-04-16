@@ -1,0 +1,5 @@
+. mmontcho_funcs
+for filename in "$@"
+do
+uncap "$filename"
+done

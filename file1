@@ -1,0 +1,3 @@
+echo Arg1 is $1
+echo Arg2 is $2
+echo Arg3 is $3

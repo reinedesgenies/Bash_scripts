@@ -1,0 +1,18 @@
+. mmontcho_funcs
+
+CMDDIRECTORY=$1
+BACKUPDIRECTORY="$HOME/backup"
+
+echo "$CMDDIRECTORY" is here is  the files I want to zip
+
+echo "$BACKUPDIRECTORY" is here I want to zip to
+
+if [ ! -d "$BACKUPDIRECTORY" ]
+then 
+    mkdir -p "$BACKUPDIRECTORY"
+fi
+#cd "$CMDDIRECTORY"
+echo `pwd`
+NAMEFILE="$CMDDIRECTORY-$(date +"%Y-%m-%d").zip"
+zip -r $BACKUPDIRECTORY/$NAMEFILE $CMDDIRECTORY
+

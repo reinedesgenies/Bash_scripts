@@ -1,0 +1,42 @@
+. mmontcho_funcs
+
+CURRENTDIRECTORY=`pwd`
+for VAR in "$@"
+do
+VARIABLE=$VAR
+NUMBER=`echo "$VARIABLE" | sed 's/[^0-9]//g'` 
+FOLDER=`echo "$VARIABLE" | sed -e s/_.*//`
+N="hw$NUMBER"
+
+MYDIRECTORY="$HOME/homeworks/$N"
+PATHTOMYZIP="$CURRENTDIRECTORY/$1"
+
+
+
+echo "$FOLDER" is my number
+echo "$N" is my andrew id
+
+
+if [ ! -d "$MYDIRECTORY" ]
+then
+    mkdir -p "$MYDIRECTORY"
+fi
+
+cd "$MYDIRECTORY"
+
+if [ ! -d "$FOLDER" ]
+then
+    mkdir -p "$FOLDER"
+fi
+
+echo "$PATHTOMYZIP" is my zip files 
+unzip -d "$FOLDER" "$PATHTOMYZIP"
+done
+# find cmd |grep t|head -1
+# find cmd |grep t|head -5
+# find cmd |grep t|wc -l  
+#if [ -f "${variable}" ]
+#then
+#echo "$variable is a file"
+#removeSpaces "$1" "$2"
+#fi

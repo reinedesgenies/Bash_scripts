@@ -1,0 +1,15 @@
+#set -x
+N=$1
+
+# error check for N is a integer
+#
+#
+
+##for num in {1..10}
+while [ $N -gt 0 ]
+do 
+#((N--))
+ # echo $N $num  $RANDOM
+ echo $RANDOM
+  ((N--))
+done

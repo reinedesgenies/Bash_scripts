@@ -1,0 +1,7 @@
+. mmontcho_funcs
+VARIABLE=$1
+
+
+find -name "*.$1"
+
+

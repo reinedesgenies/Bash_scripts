@@ -1,0 +1,2 @@
+SCRIPT=`who |wc -l `
+echo There are $SCRIPT users logged in at `date`
